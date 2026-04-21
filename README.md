@@ -2,41 +2,51 @@
 
 ## 🔹 Overview
 
-This project is a simple **Bookstore Management System** built using HTML. It provides a clean and user-friendly interface to display and manage book-related information. The goal of this project is to demonstrate basic web development skills and project structuring.
+This project is a simple **Bookstore Management System** built using HTML, CSS, and JavaScript. It allows users to add and remove books dynamically through a clean and interactive user interface.
 
 ---
 
 ## 🔹 Features
 
-* 📖 Display list of books
-* 🧾 Organized layout for better readability
-* 💻 Beginner-friendly and easy to use
-* ⚡ Lightweight and fast
+* ➕ Add books with title and author
+* ❌ Delete books instantly
+* ⚡ Dynamic updates without page reload
+* 🎨 Simple and user-friendly UI
 
 ---
 
 ## 🔹 Technologies Used
 
 * HTML
-* (You can add CSS/JavaScript if used)
+* CSS
+* JavaScript
 
 ---
 
 ## 🔹 How to Run
 
-1. Download or clone this repository
+1. Clone or download this repository
 2. Open the project folder
-3. Run the `index.html` file in any browser
+3. Run the `index.html` file in your browser
+
+---
+
+## 🔹 Project Structure
+
+```
+Bookstore/
+ └── index.html
+```
 
 ---
 
 ## 🔹 Future Improvements
 
-* 🎨 Improve UI using CSS
-* 🔍 Add search and filter functionality
-* 🔐 Add user login system
-* 🗄️ Connect with database (MongoDB/MySQL)
-* 🌐 Convert into full-stack project using Node.js
+* 🔍 Add search functionality
+* 💾 Store data using localStorage
+* ✏️ Edit book details
+* 🎨 Improve UI design with advanced CSS
+* 🌐 Convert into full-stack application
 
 ---
 
