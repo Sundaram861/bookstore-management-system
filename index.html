@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bookstore Management System</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f4f4;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .container {
+      width: 60%;
+      margin: auto;
+    }
+
+    input {
+      padding: 10px;
+      margin: 5px;
+      width: 200px;
+    }
+
+    button {
+      padding: 10px;
+      background: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .book {
+      background: white;
+      margin: 10px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .delete {
+      background: red;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📚 Bookstore Management System</h1>
+
+  <div class="container">
+    <input type="text" id="title" placeholder="Book Title">
+    <input type="text" id="author" placeholder="Author">
+    <button onclick="addBook()">Add Book</button>
+
+    <div id="bookList"></div>
+  </div>
+
+  <script>
+    function addBook() {
+      let title = document.getElementById("title").value;
+      let author = document.getElementById("author").value;
+
+      if (title === "" || author === "") {
+        alert("Please enter all details");
+        return;
+      }
+
+      let bookList = document.getElementById("bookList");
+
+      let div = document.createElement("div");
+      div.className = "book";
+
+      div.innerHTML = title + " by " + author +
+        `<button class="delete" onclick="this.parentElement.remove()">Delete</button>`;
+
+      bookList.appendChild(div);
+
+      document.getElementById("title").value = "";
+      document.getElementById("author").value = "";
+    }
+  </script>
+
+</body>
+</html>
