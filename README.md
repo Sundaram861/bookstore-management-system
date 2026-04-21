@@ -78,7 +78,7 @@ Bookstore/
 ## 🔹 Author
 
 **Sundaram**
-B.Tech IT (3rd Year)
+B.Tech IT
 KIIT, Bhubaneswar
 
 ---
