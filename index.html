@@ -43,6 +43,10 @@
       background: red;
       margin-left: 10px;
     }
+
+    #search {
+      width: 420px;
+    }
   </style>
 </head>
 <body>
@@ -54,10 +58,31 @@
     <input type="text" id="author" placeholder="Author">
     <button onclick="addBook()">Add Book</button>
 
+    <br><br>
+
+    <input type="text" id="search" placeholder="Search books..." onkeyup="searchBook()">
+
     <div id="bookList"></div>
   </div>
 
   <script>
+    let books = JSON.parse(localStorage.getItem("books")) || [];
+
+    function displayBooks(filteredBooks = books) {
+      let bookList = document.getElementById("bookList");
+      bookList.innerHTML = "";
+
+      filteredBooks.forEach((book, index) => {
+        let div = document.createElement("div");
+        div.className = "book";
+
+        div.innerHTML = `${book.title} by ${book.author}
+          <button class="delete" onclick="deleteBook(${index})">Delete</button>`;
+
+        bookList.appendChild(div);
+      });
+    }
+
     function addBook() {
       let title = document.getElementById("title").value;
       let author = document.getElementById("author").value;
@@ -67,19 +92,34 @@
         return;
       }
 
-      let bookList = document.getElementById("bookList");
+      books.push({ title, author });
+      localStorage.setItem("books", JSON.stringify(books));
 
-      let div = document.createElement("div");
-      div.className = "book";
-
-      div.innerHTML = title + " by " + author +
-        `<button class="delete" onclick="this.parentElement.remove()">Delete</button>`;
-
-      bookList.appendChild(div);
+      displayBooks();
 
       document.getElementById("title").value = "";
       document.getElementById("author").value = "";
     }
+
+    function deleteBook(index) {
+      books.splice(index, 1);
+      localStorage.setItem("books", JSON.stringify(books));
+      displayBooks();
+    }
+
+    function searchBook() {
+      let query = document.getElementById("search").value.toLowerCase();
+
+      let filtered = books.filter(book =>
+        book.title.toLowerCase().includes(query) ||
+        book.author.toLowerCase().includes(query)
+      );
+
+      displayBooks(filtered);
+    }
+
+    // Load books on page load
+    displayBooks();
   </script>
 
 </body>
